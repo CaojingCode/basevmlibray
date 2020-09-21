@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.qmuiteam.qmui.widget.roundwidget.QMUIRoundLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:qmui_backgroundColor="@color/White">
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       android:text="我是消息提示语"
+        android:textColor="@color/Black"
+        android:gravity="center"/>
+
+
+
+</com.qmuiteam.qmui.widget.roundwidget.QMUIRoundLinearLayout>

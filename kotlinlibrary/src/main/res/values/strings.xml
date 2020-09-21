@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="common_error_net_time_out">请求服务超时</string>
+    <string name="common_error_net">网络错误</string>
+    <string name="common_error_server">服务器异常</string>
+    <string name="common_error_request">请求错误</string>
+    <string name="common_error_do_something_fail">其他异常</string>
+    <string name="common_error_server_body_null">服务端返回数据异常</string>
+    <string name="permission_rationale_message">您已经拒绝我们申请授权，请您同意授权，否则功能无法正常使用</string>
+    <string name="permission_denied_forever_message">我们需要的一些权限被您拒绝或获取失败了，请手动进入设置为页面授权，否则功能不能正常使用!</string>
+    <string name="str_tittle">标题</string>
+</resources>

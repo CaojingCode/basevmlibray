@@ -1,0 +1,70 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "30.0.0"
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+
+
+        buildConfigField("int","DESIGNWIDTH", project.properties['DESIGNWIDTH'])
+        buildConfigField("int","DESIGNHEIGHT",project.properties['DESIGNHEIGHT'])
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    def lifecycle_version = "2.2.0"
+    def coroutines_version = "1.3.7"
+    def retrofit2_version = "2.9.0"
+    def recyclerview_version = "1.1.0"
+    def adapter_version = "2.9.50"
+    def rxtool_version = "2.6.2"
+
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    api "androidx.recyclerview:recyclerview:$recyclerview_version"
+
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+    api "com.squareup.retrofit2:retrofit:$retrofit2_version"
+    api "com.squareup.retrofit2:converter-gson:$retrofit2_version"
+
+    api "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+    api"androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+
+    implementation("com.squareup.okhttp3:logging-interceptor:4.7.2")
+
+    api 'com.blankj:utilcodex:1.29.0'
+    api "com.github.CymChad:BaseRecyclerViewAdapterHelper:$adapter_version"
+
+    api 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+
+    api 'com.qmuiteam:qmui:2.0.0-alpha10'
+
+    api "com.github.tamsiree.RxTool:RxKit:$rxtool_version"
+    api "com.github.tamsiree.RxTool:RxUI:$rxtool_version"
+
+    api 'me.jessyan:autosize:1.2.1'
+
+}
