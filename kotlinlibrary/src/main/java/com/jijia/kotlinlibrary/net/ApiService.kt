@@ -8,10 +8,12 @@ interface ApiService {
     @GET
     suspend fun <T> httpGet(@Url url: String, @QueryMap map: Map<String, String>): ApiResponse<T>
 
+    @FormUrlEncoded
     @POST
     suspend fun <T> httpPost(@Url url: String, @FieldMap map: Map<String, String>): ApiResponse<T>
 
 
+    @FormUrlEncoded
     @POST
     suspend fun <T> post(@Url url: String, @FieldMap map: Map<String, String>): T
 }
