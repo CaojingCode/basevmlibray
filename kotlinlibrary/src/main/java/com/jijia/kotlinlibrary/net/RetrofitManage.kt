@@ -13,6 +13,8 @@ object RetrofitManage {
 
     lateinit var retrofit: Retrofit
 
+    lateinit var interceptor: Interceptor
+
     // 日志拦截器
     private val mLoggingInterceptor: Interceptor by lazy {
         HttpLoggingInterceptor(object : HttpLoggingInterceptor.Logger {
@@ -25,6 +27,16 @@ object RetrofitManage {
 
     // OkHttpClient客户端
     private val mClient: OkHttpClient by lazy { newClient() }
+
+    fun getOKHttpClient(): OkHttpClient {
+        return mClient
+    }
+
+    //设置请求的Interceptor
+    fun setRequestInterceptor(interceptor: Interceptor) {
+        this.interceptor = interceptor
+    }
+
 
     fun initRetrofit(baseUrl: String) {
         retrofit = Retrofit.Builder().baseUrl(baseUrl).client(mClient)
@@ -39,6 +51,9 @@ object RetrofitManage {
         connectTimeout(30, TimeUnit.SECONDS)// 连接时间：30s超时
         readTimeout(10, TimeUnit.SECONDS)// 读取时间：10s超时
         writeTimeout(10, TimeUnit.SECONDS)// 写入时间：10s超时
+        if (::interceptor.isInitialized) {
+            addInterceptor(interceptor)
+        }
         if (BuildConfig.DEBUG)
             addInterceptor(mLoggingInterceptor)// 仅debug模式启用日志过滤器
     }.build()
