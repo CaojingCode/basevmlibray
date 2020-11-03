@@ -3,9 +3,9 @@ package com.jijia.kotlinlibrary.entity
 import com.google.gson.annotations.SerializedName
 
 data class ApiResponse<T>(
-    @SerializedName("errorCode")
+    @SerializedName("code")
     var code: Int = 0,
-    @SerializedName("errorMsg")
+    @SerializedName("msg")
     var msg: String = "",
     @SerializedName("data")
     var data: T? = null,
