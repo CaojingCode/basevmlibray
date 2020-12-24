@@ -58,7 +58,7 @@
         android:id="@+id/viewLine"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/Gray80_25"
+        android:background="@color/qmui_config_color_gray_9"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="75dp"
         />
