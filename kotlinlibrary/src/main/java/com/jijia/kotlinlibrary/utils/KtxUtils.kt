@@ -15,12 +15,12 @@ import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.PermissionUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.flyco.tablayout.listener.CustomTabEntity
-import com.jijia.kotlinlibrary.R
 import com.jijia.kotlinlibrary.base.AppLiveData
 import com.jijia.kotlinlibrary.entity.ApiResponse
 import com.jijia.kotlinlibrary.entity.AppState
+import com.qmuiteam.qmui.widget.dialog.QMUIDialog
+import com.qmuiteam.qmui.widget.dialog.QMUIDialogAction
 import com.qmuiteam.qmui.widget.dialog.QMUITipDialog
-import com.tamsiree.rxui.view.dialog.RxDialogSureCancel
 
 
 fun Activity.fullScreen() {
@@ -91,7 +91,8 @@ fun Context.permissionRequest(permission: String, block: () -> Unit) {
                                 + "\n请在设置-应用-${AppUtils.getAppName()}-权限中开启相关权限，" +
                                 "以正常使用${AppUtils.getAppName()}功能"
                     ) {
-
+                        //跳转到权限设置页面
+                        PermissionUtils.launchAppDetailsSettings()
                     }.show()
                 }
 
@@ -107,22 +108,22 @@ fun Context.permissionRequest(permission: String, block: () -> Unit) {
 /**
  * 通用对话框
  */
-fun Context.commonDialog(content: String, block: () -> Unit): RxDialogSureCancel {
-    var rxDialog = RxDialogSureCancel(this, R.style.PushUpInDialogThem)
-    rxDialog.setContent(content)
-    rxDialog.setSureListener(View.OnClickListener {
+fun Context.commonDialog(content: String, block: () -> Unit): QMUIDialog {
+    var dialog = QMUIDialog.MessageDialogBuilder(this)
+    dialog.setMessage(content)
+    dialog.addAction(QMUIDialogAction("确定", QMUIDialogAction.ActionListener { dialog, index ->
         block()
-    })
-    rxDialog.setCancelListener(View.OnClickListener {
-        rxDialog.dismiss()
-    })
-    return rxDialog
+    }))
+    dialog.addAction(QMUIDialogAction("取消", QMUIDialogAction.ActionListener { dialog, index ->
+        dialog.dismiss()
+    }))
+    return dialog.create()
 }
 
 fun Context.loadingDialog(): QMUITipDialog {
     return QMUITipDialog.Builder(this)
         .setIconType(QMUITipDialog.Builder.ICON_TYPE_LOADING)
-        .create(false, R.style.tran_dialog)
+        .create(false)
 }
 
 fun <T> AppLiveData<ApiResponse<T>>.appObserve(

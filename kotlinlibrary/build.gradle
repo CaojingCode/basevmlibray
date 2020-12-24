@@ -62,8 +62,8 @@ dependencies {
 
     api 'com.qmuiteam:qmui:2.0.0-alpha10'
 
-    api "com.github.tamsiree.RxTool:RxKit:$rxtool_version"
-    api "com.github.tamsiree.RxTool:RxUI:$rxtool_version"
+//    api "com.github.tamsiree.RxTool:RxKit:$rxtool_version"
+//    api "com.github.tamsiree.RxTool:RxUI:$rxtool_version"
 
     api 'me.jessyan:autosize:1.2.1'
 

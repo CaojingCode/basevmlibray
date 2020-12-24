@@ -18,6 +18,8 @@ import com.qmuiteam.qmui.widget.dialog.QMUITipDialog
 import kotlinx.android.synthetic.main.activity_base.*
 import me.jessyan.autosize.AutoSizeCompat
 import me.jessyan.autosize.AutoSizeConfig
+import okhttp3.*
+import java.io.IOException
 
 abstract class BaseActivity : AppCompatActivity() {
     lateinit var loadingDialog: QMUITipDialog
