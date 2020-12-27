@@ -13,8 +13,6 @@ import com.jijia.kotlinlibrary.BuildConfig
 import com.jijia.kotlinlibrary.R
 import com.jijia.kotlinlibrary.R.id.viewLine
 import com.jijia.kotlinlibrary.utils.fullScreen
-import com.jijia.kotlinlibrary.utils.loadingDialog
-import com.qmuiteam.qmui.widget.dialog.QMUITipDialog
 import kotlinx.android.synthetic.main.activity_base.*
 import me.jessyan.autosize.AutoSizeCompat
 import me.jessyan.autosize.AutoSizeConfig
@@ -22,13 +20,11 @@ import okhttp3.*
 import java.io.IOException
 
 abstract class BaseActivity : AppCompatActivity() {
-    lateinit var loadingDialog: QMUITipDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base)
         fullScreen()
-        loadingDialog = loadingDialog()
         setContentLayout(layoutResID())
         initView()
         initData()

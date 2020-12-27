@@ -9,11 +9,4 @@
     <item name="android:windowMinWidthMinor">85%</item>
 </style>
 
-    <style name="ImmersionTheme" parent="QMUI.Compat.NoActionBar">
-        <item name="android:windowTranslucentNavigation">true</item>
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:background">#f5f5f5</item>
-        <item name="colorPrimary">@color/F6</item>
-    </style>
 </resources>

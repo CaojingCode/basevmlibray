@@ -2,7 +2,10 @@ package com.jijia.kotlinlibrary.utils
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.AlertDialog
+import android.app.Dialog
 import android.content.Context
+import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Build
 import android.view.View
@@ -18,9 +21,6 @@ import com.flyco.tablayout.listener.CustomTabEntity
 import com.jijia.kotlinlibrary.base.AppLiveData
 import com.jijia.kotlinlibrary.entity.ApiResponse
 import com.jijia.kotlinlibrary.entity.AppState
-import com.qmuiteam.qmui.widget.dialog.QMUIDialog
-import com.qmuiteam.qmui.widget.dialog.QMUIDialogAction
-import com.qmuiteam.qmui.widget.dialog.QMUITipDialog
 
 
 fun Activity.fullScreen() {
@@ -38,7 +38,6 @@ fun Activity.fullScreen() {
         window.navigationBarColor = Color.TRANSPARENT
     }
 }
-
 
 
 /**
@@ -108,23 +107,18 @@ fun Context.permissionRequest(permission: String, block: () -> Unit) {
 /**
  * 通用对话框
  */
-fun Context.commonDialog(content: String, block: () -> Unit): QMUIDialog {
-    var dialog = QMUIDialog.MessageDialogBuilder(this)
+fun Context.commonDialog(content: String, block: () -> Unit): AlertDialog {
+    var dialog = AlertDialog.Builder(this)
     dialog.setMessage(content)
-    dialog.addAction(QMUIDialogAction("确定", QMUIDialogAction.ActionListener { dialog, index ->
+    dialog.setPositiveButton("确定", DialogInterface.OnClickListener { dialog, which ->
         block()
-    }))
-    dialog.addAction(QMUIDialogAction("取消", QMUIDialogAction.ActionListener { dialog, index ->
+    })
+    dialog.setNegativeButton("取消", DialogInterface.OnClickListener { dialog, which ->
         dialog.dismiss()
-    }))
+    })
     return dialog.create()
 }
 
-fun Context.loadingDialog(): QMUITipDialog {
-    return QMUITipDialog.Builder(this)
-        .setIconType(QMUITipDialog.Builder.ICON_TYPE_LOADING)
-        .create(false)
-}
 
 fun <T> AppLiveData<ApiResponse<T>>.appObserve(
     activity: AppCompatActivity,
@@ -154,7 +148,7 @@ fun <T> AppLiveData<ApiResponse<T>>.appObserve(
                     if (data != null) {
                         onSuccess(data)
 //                        ToastUtils.showShort("返回不为空")
-                    }else{
+                    } else {
                         onEmpty()
 //                        ToastUtils.showShort("返回数据为空")
                     }

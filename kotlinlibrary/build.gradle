@@ -28,6 +28,7 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     def lifecycle_version = "2.2.0"
     def coroutines_version = "1.3.7"
     def retrofit2_version = "2.9.0"
@@ -60,7 +61,7 @@ dependencies {
 
     api 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
 
-    api 'com.qmuiteam:qmui:2.0.0-alpha10'
+//    api 'com.qmuiteam:qmui:2.0.0-alpha10'
 
 //    api "com.github.tamsiree.RxTool:RxKit:$rxtool_version"
 //    api "com.github.tamsiree.RxTool:RxUI:$rxtool_version"
