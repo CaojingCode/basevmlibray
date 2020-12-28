@@ -59,7 +59,9 @@ dependencies {
     api 'com.blankj:utilcodex:1.29.0'
     api "com.github.CymChad:BaseRecyclerViewAdapterHelper:$adapter_version"
 
-    api 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+//    api 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+
+//    api 'com.android.support:multidex:1.0.3'
 
 //    api 'com.qmuiteam:qmui:2.0.0-alpha10'
 

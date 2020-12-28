@@ -17,7 +17,7 @@ import com.blankj.utilcode.util.AppUtils
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.PermissionUtils
 import com.blankj.utilcode.util.ToastUtils
-import com.flyco.tablayout.listener.CustomTabEntity
+//import com.flyco.tablayout.listener.CustomTabEntity
 import com.jijia.kotlinlibrary.base.AppLiveData
 import com.jijia.kotlinlibrary.entity.ApiResponse
 import com.jijia.kotlinlibrary.entity.AppState
@@ -44,29 +44,29 @@ fun Activity.fullScreen() {
  * CustomTabEntity 集合数据
  * 主要用来给CommonTabLayout 填充数据，首页底部导航栏
  */
-fun MutableList<CustomTabEntity>.addData(
-    tittles: ArrayList<String>,
-    unSelectedIds: ArrayList<Int>,
-    selectedIds: ArrayList<Int>
-): ArrayList<CustomTabEntity> {
-    for (i in tittles.indices) {
-        add(object : CustomTabEntity {
-            override fun getTabUnselectedIcon(): Int {
-                return unSelectedIds[i]
-            }
-
-            override fun getTabSelectedIcon(): Int {
-                return selectedIds[i]
-            }
-
-            override fun getTabTitle(): String {
-                return tittles[i]
-            }
-
-        })
-    }
-    return this as ArrayList<CustomTabEntity>
-}
+//fun MutableList<CustomTabEntity>.addData(
+//    tittles: ArrayList<String>,
+//    unSelectedIds: ArrayList<Int>,
+//    selectedIds: ArrayList<Int>
+//): ArrayList<CustomTabEntity> {
+//    for (i in tittles.indices) {
+//        add(object : CustomTabEntity {
+//            override fun getTabUnselectedIcon(): Int {
+//                return unSelectedIds[i]
+//            }
+//
+//            override fun getTabSelectedIcon(): Int {
+//                return selectedIds[i]
+//            }
+//
+//            override fun getTabTitle(): String {
+//                return tittles[i]
+//            }
+//
+//        })
+//    }
+//    return this as ArrayList<CustomTabEntity>
+//}
 
 
 @SuppressLint("WrongConstant")
