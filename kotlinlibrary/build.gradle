@@ -15,8 +15,8 @@ android {
         consumerProguardFiles "consumer-rules.pro"
 
 
-        buildConfigField("int","DESIGNWIDTH", project.properties['DESIGNWIDTH'])
-        buildConfigField("int","DESIGNHEIGHT",project.properties['DESIGNHEIGHT'])
+        buildConfigField("int", "DESIGNWIDTH", project.properties['DESIGNWIDTH'])
+        buildConfigField("int", "DESIGNHEIGHT", project.properties['DESIGNHEIGHT'])
     }
 
     buildTypes {
@@ -28,7 +28,6 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     def lifecycle_version = "2.2.0"
     def coroutines_version = "1.3.7"
     def retrofit2_version = "2.9.0"
@@ -45,14 +44,15 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     api "androidx.recyclerview:recyclerview:$recyclerview_version"
+    api 'androidx.constraintlayout:constraintlayout:2.0.4'
 
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
     api "com.squareup.retrofit2:retrofit:$retrofit2_version"
     api "com.squareup.retrofit2:converter-gson:$retrofit2_version"
 
-    api "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
-    api"androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    api "androidx.lifecycle:lifecycle-runtime-kztx:$lifecycle_version"
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 
     implementation("com.squareup.okhttp3:logging-interceptor:4.7.2")
 
