@@ -14,8 +14,6 @@ import com.jijia.kotlinlibrary.R
 import com.jijia.kotlinlibrary.R.id.viewLine
 import com.jijia.kotlinlibrary.utils.fullScreen
 import kotlinx.android.synthetic.main.activity_base.*
-import me.jessyan.autosize.AutoSizeCompat
-import me.jessyan.autosize.AutoSizeConfig
 import okhttp3.*
 import java.io.IOException
 
@@ -97,15 +95,6 @@ abstract class BaseActivity : AppCompatActivity() {
         tvTittle.text = text
     }
 
-    override fun getResources(): Resources {
-        if (Looper.getMainLooper().thread == Thread.currentThread()) AutoSizeCompat.autoConvertDensity(
-            super.getResources(),
-            BuildConfig.DESIGNHEIGHT.toFloat(),
-            AutoSizeConfig.getInstance().screenWidth > AutoSizeConfig.getInstance().screenHeight
-        )
-
-        return super.getResources()
-    }
 
     override fun onBackPressed() {
         super.onBackPressed()

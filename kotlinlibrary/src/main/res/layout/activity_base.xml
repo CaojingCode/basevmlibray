@@ -28,7 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:padding="15dp"
-        android:src="@drawable/back"/>
+        />
 
     <TextView
         android:id="@+id/tvTittle"

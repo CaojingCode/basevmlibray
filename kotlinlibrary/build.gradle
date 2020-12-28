@@ -66,6 +66,6 @@ dependencies {
 //    api "com.github.tamsiree.RxTool:RxKit:$rxtool_version"
 //    api "com.github.tamsiree.RxTool:RxUI:$rxtool_version"
 
-    api 'me.jessyan:autosize:1.2.1'
+//    api 'me.jessyan:autosize:1.2.1'
 
 }
